@@ -19,9 +19,10 @@ static/ contains css and javascript
 
 
 If you would want to use it, even if it's not pretty at all:
-	* Move settings.example.py to settings.py and change everything.
-	* Replace the hardcode stuff in the templates (I guess one would want to change these anyway).
-	* Find the hardcoded stuff in the handlers :)
+
+* Move settings.example.py to settings.py and change everything.
+* Replace the hardcode stuff in the templates (I guess one would want to change these anyway).
+* Find the hardcoded stuff in the handlers :)
 
 I also used https://github.com/kswedberg/jquery-expander (put it with jquery in static/js/)
 
