@@ -30,4 +30,4 @@ and for blog / page editing http://www.tinymce.com (in static/tinymce/).
 
 Oh well and for the xmpp part you would need a recent version of prosody with mod_register_json.
 
-See it in action: https//pengubytes.de
+See it in action: https://pengubytes.de
