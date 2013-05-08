@@ -1,0 +1,11 @@
+form label
+{
+	display: block;
+	width: 120px;
+	float:left;
+	text-align: right;
+}
+form input[type=submit]
+{
+	margin-left: 160px;
+}

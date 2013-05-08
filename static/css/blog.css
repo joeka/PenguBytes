@@ -1,0 +1,78 @@
+.sidebar
+{
+	float: right;
+	box-shadow: 2px 2px 8px #00ADA7;
+	border-radius:3px;
+	padding: 10px;
+	margin-top: 20px;
+	margin-right:  10px;
+	margin-left: 5px;
+	width: 100px;
+	min-height: 200px;
+	text-align: center;
+
+}
+.taglist
+{
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+.taglist a:link, .taglist a:visited, .article_taglist a:link, .article_taglist a:visited
+{
+	text-decoration: none;
+	color: #000000;
+	font-weight: bold;
+}
+.taglist a:hover, .article_taglist a:hover
+{
+	text-decoration: underline;
+}
+.taglist a:active, .article_taglist a:active
+{
+	color: #C24704;
+}
+.article_taglist
+{
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+.article_taglist li
+{
+	display: inline;
+	margin-left: 20px;
+}
+.blog_nav
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 60px;
+	text-align: center;
+}
+.nav_right
+{
+	float: right;
+}
+.nav_left
+{
+	float: left;
+}
+.article
+{
+	background-color:  #FFFFFF;
+	box-shadow: 2px 2px 8px #00ADA7;
+	border-radius:3px;
+	padding: 10px;
+	margin: 20px 10px;
+	max-width: 600px;
+}
+.article_title
+{
+	display: inline;
+}
+.article .article_date
+{
+	float: right;
+}
+

@@ -1,0 +1,114 @@
+/*
+#C24704 
+#D9CC3C 
+#FFEB79
+#A0E0A9
+#00ADA7
+I can't colors, thanks sporkt (https://kuler.adobe.com/#themeID/1974489)
+*/
+body
+{
+	background-color: #00ADA7;
+	font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+}
+
+h1 a, h2 a, h3 a
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+h1 a:hover, h2 a:hover, h3 a:hover
+{
+	text-decoration: underline;
+}
+h1 a:active,  h2 a:active, h3 a:active
+{
+	color: #C24704;
+}
+hr
+{
+	background-color: #C24704;
+	border-color: #C24704;
+}
+
+#container
+{
+	max-width: 800px;
+	margin-left:  auto;
+	margin-right:  auto;
+}
+.content
+{
+	margin: 0;
+	background-color: #FFFFFF;
+	padding: 10px;
+	border-radius:5px;
+	min-height: 400px;
+}
+
+#header
+{
+	max-width: 666px;
+	margin: 30px, auto;
+	text-align: center;
+}
+#menu
+{
+	list-style-type: none;
+	padding: 0;
+}
+#menu li
+{	
+	display: inline-block;
+}
+#menu a:link, #menu a:visited
+{
+	margin-left: 6px;
+	margin-right: 6px;
+	text-align: center;
+	padding: 3px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+	background-color: #D9CC3C;
+}
+#menu a:hover
+{
+	background-color: #f2e443;
+}
+#menu a:active
+{
+	background-color: #bfb435;
+}
+.page_title
+{
+	display: inline;
+}
+#footer
+{
+	text-align: right;
+}
+#footer_links
+{
+	list-style-type: none;
+}
+#footer_links li
+{
+	display: inline-block;
+}
+#footer_links a:link, #footer_links a:visited
+{
+	text-decoration: none;
+	text-align: center;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+#footer_links a:hover
+{
+	text-decoration: underline;
+}
+#footer_links a:active
+{
+	color: #FFEB79;
+}
