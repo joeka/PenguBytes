@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% end %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/css/author.css">
+{% end %}
+{% block js %}
+	{% module Template("editor.html") %}
+{% end %} 
+{% block content_id %}edit_article{% end %}
+{% block content %}
+	<p>{{ message }}</p>
+	<form name="edit_article" action="{{ action }}" method="post">
+		{% module xsrf_form_html() %}
+		<label>Title:</label><input type="text" name="title" value="{{ article_title }}" size="70" />
+		{% if not new %}
+			<input type="checkbox" name="change_slug" /> change slug
+		{% end %}
+		<br />
+		<textarea id="wysihtml5-textarea" rows="30" cols="70" name="text">{{ article_text }}</textarea><br />
+		<label>Tags:</label><input type="text" name="tags" value="{{ article_tags }}" size="70" /> <br />
+
+		<input type="submit" value="Publish" />
+	</form>
+
+{% end %}

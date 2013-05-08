@@ -1,0 +1,13 @@
+<div class="sidebar" id="blog_sidebar">
+	{% if  editable %}
+		<a href="/blog/new">New post</a>
+	{% end %}
+	{% if tagList %}
+		<h3> Tags: </h3>
+		<ul class="taglist">
+			{% for tag in tagList %}
+			<li><a href="/blog/tags/{{ tag['_id'] }}">{{ tag['_id'] }}</a></li>
+			{% end %}
+		</ul>
+	{% end %}
+</div>

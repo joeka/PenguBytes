@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page['title'] }}{% end %}
+{% block css %}{% if editable %}<link rel="stylesheet" type="text/css" href="/css/author.css">{% end %}{% end %}
+{% block content_id %}{{ page['name'] }}{% end %}
+{% block content %}
+	<h2 class="page_title">{{ page['title'] }}</h2>
+	{% if editable %}
+		<ul class="author_menu">
+			<li><a href="/{{ page['name'] }}?edit=true">edit</a></li> 
+			<li><a href="/{{ page['name'] }}?delete=true" onclick="return confirm('Really delete page?')">delete</a></li>
+		</ul>
+	{% end %}
+	<hr />
+	{% raw page['text'] %}
+{% end %}

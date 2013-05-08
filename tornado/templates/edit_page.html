@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% end %}
+{% block css %}<link rel="stylesheet" type="text/css" href="/css/author.css">{% end %} 
+{% block js %}
+	{% module Template("editor.html") %}
+{% end %}
+{% block content_id %}edit_page{% end %}
+{% block content %}	
+	<p>{{ message }}</p>
+	<form name="edit_page" action="{{ action }}" method="post">
+		{% module xsrf_form_html() %}
+		<label>Name:</label><input type="text" name="name" value="{{ page_name }}" size="70" /> (url) <br />
+		<label>Title:</label><input type="text" name="title" value="{{ page_title }}" size="70" /><br />
+		<label>Text:</label><textarea rows="30" cols="70" name="text">{{ page_text }}</textarea><br />
+		<input type="submit" value="Save" />
+	</form>
+{% end %}

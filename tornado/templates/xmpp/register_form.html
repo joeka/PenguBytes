@@ -1,0 +1,18 @@
+{% extends "../base.html" %}
+{% block title %}{{ title }}{% end %}
+{% block css %}<link rel="stylesheet" type="text/css" href="/css/form.css">{% end %}
+{% block content_id %}xmpp_register{% end %}
+{% block content %}
+	<p>
+		{{ text }}
+	</p>
+	<form name="register_xmpp" action="{{ action }}" method="post">
+		{% module xsrf_form_html() %}
+		<label>Username:</label><input type="text" name="username" value="{{ username }}" />
+			@pengubytes.de <br />
+		<label>Password:</label><input type="password" name="password" /><br />
+		<label>Repeat password:</label><input type="password" name="password2" /><br />
+
+		<input type="submit" value="Register" />
+	</form>
+{% end %}

@@ -1,0 +1,29 @@
+<div class="article">
+	<h3 class="article_title">
+	<a href="/blog/{{ article["slug"]  }}">
+		{{ article["title"] }}
+	</a>
+	</h3>
+	<span class="article_date">{{ formatDate(article['date']) }}</span>	
+{% if editable %}
+	<ul class="author_menu">
+		<li>
+			<a href="/blog/{{ article['slug'] }}?edit=true">edit</a>
+		</li>
+		<li>
+			<a class="delete_article" href="/blog?delete=true&slug={{ article['slug'] }}" onclick="return confirm('Really delete article?')">delete</a>
+		</li>
+	</ul>
+{% end %}
+	<hr />
+	<div class="article_text" id="txt_{{ article["slug"] }}">{% raw article["text"] %}</div>
+	<div class="article_tags">
+		<ul class="article_taglist">
+		{% for tag in article["tags"] %}
+			<li><a href="/blog/tags/{{ tag }}">
+				{{ tag }}
+			</a></li>
+		{% end %}
+		</ul>
+	</div>
+</div>

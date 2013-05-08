@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% end %}
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/css/blog.css">
+	{% if editable %}
+		<link rel="stylesheet" type="text/css" href="/css/author.css">
+	{% end %}
+{% end %}
+{% block js %}{% if len(articles) > 1 %}
+	<script src="/js/jquery-2.0.0.min.js"></script>
+	<script src="/js/jquery.expander.min.js"></script>
+	<script src="/js/blog.js"></script>
+{% end %}{% end %}
+{% block content_id %}blog{% end %}
+{% block content %}
+	{% module Template("blog_side.html", tagList=tagList, editable=editable) %}
+	{% if nav_left or nav_right %}
+	<div class="blog_nav">
+		{% if nav_left %}<a class="nav_left" href="{{ nav_left }}">&lt;&lt; </a>{% end %}
+		<span class="current_page">{{ page }}</span>
+		{% if nav_right %}<a class="nav_right" href="{{ nav_right }}"> &gt;&gt;</a>{% end %}
+	</div>
+	{%end%}
+	{% for article in articles %}
+		{% module Template("article.html", article=article, editable=editable, formatDate=formatDate) %}
+	{% end %}
+	{% if nav_left or nav_right %}
+	<div class="blog_nav">
+		{% if nav_left %}<a class="nav_left" href="{{ nav_left }}">&lt;&lt; </a>{% end %}
+		<span class="current_page">{{ page }}</span>
+		{% if nav_right %}<a class="nav_right" href="{{ nav_right }}"> &gt;&gt;</a>{% end %}
+	</div>
+	{%end%}
+
+{% end %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}login{% end %}
+{% block content_id %}login{% end %}
+{% block content %}	
+	<p>You can login using Google or Facebook:</p>
+	<ul id="login_list">
+		<li><a href="/auth_google{{ args }}">Login using Google (OpenID)</a></li>
+		<li><a href="/auth_facebook{{ args }}">Login using Facebook</a></li>
+	</ul>
+	<ol id="terms">
+		<li>
+			This is used to get your email address, that is already verified by one of these services. Only your email address and your name will be used and only for the length of your session. (*2)
+		</li>
+		<li>
+			If you register a xmpp account a hash of your email address will be saved to prevent multiple registrations.
+		</li>
+	</ol>
+{% end %}
