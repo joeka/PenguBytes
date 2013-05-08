@@ -33,3 +33,19 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# My settings
+tornado/settings.py
+
+# Stuff nobody needs
+static/index.html
+static/robots.txt
+static/sitemap.xml
+tornado/testing.py
+
+# External includes
+jquery*.js
+static/tinymce/
+
+# Hidden files
+.*
