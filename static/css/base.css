@@ -97,6 +97,10 @@ hr
 {
 	display: inline-block;
 }
+code
+{
+	padding-left: 10px;
+}
 #footer_links a:link, #footer_links a:visited
 {
 	text-decoration: none;

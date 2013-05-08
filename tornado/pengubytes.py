@@ -33,8 +33,8 @@ application = tornado.web.Application([
 ], **settings)
 
 	
-if __name__ == "__main__":	# for testing
-#with daemon.DaemonContext( ):	# to use with an init script
+#if __name__ == "__main__":	# for testing
+with daemon.DaemonContext( ):	# to use with an init script
 	parser = argparse.ArgumentParser(description='pengubytes.de tornado server')
 	parser.add_argument('--port', default=8888, type=int)
 	

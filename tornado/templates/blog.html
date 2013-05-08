@@ -5,12 +5,20 @@
 	{% if editable %}
 		<link rel="stylesheet" type="text/css" href="/css/author.css">
 	{% end %}
+	<link rel="stylesheet" href="/css/idea.css">
 {% end %}
-{% block js %}{% if len(articles) > 1 %}
-	<script src="/js/jquery-2.0.0.min.js"></script>
-	<script src="/js/jquery.expander.min.js"></script>
+{% block js %}
+	{% if len(articles) > 1 %}
+		<script src="/js/jquery-2.0.0.min.js"></script>
+		<script src="/js/jquery.expander.min.js"></script>
+	{% end %}
+	<script src="/js/highlight.pack.js"></script>
 	<script src="/js/blog.js"></script>
-{% end %}{% end %}
+	<script>
+		//hljs.tabReplace = '    ';
+		hljs.initHighlightingOnLoad();
+	</script>
+{% end %}
 {% block content_id %}blog{% end %}
 {% block content %}
 	{% module Template("blog_side.html", tagList=tagList, editable=editable) %}

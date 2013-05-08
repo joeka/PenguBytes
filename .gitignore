@@ -44,8 +44,10 @@ static/sitemap.xml
 tornado/testing.py
 
 # External includes
-jquery*.js
+static/js/jquery*.js
 static/tinymce/
+static/css/idea.css
+static/js/highlight.pack.js
 
 # Hidden files
 .*
