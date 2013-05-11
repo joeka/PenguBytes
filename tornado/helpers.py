@@ -3,6 +3,22 @@ import re
 import functools
 import tornado.web
 
+def stripHtml( text ):
+    '''Strips everything that begins with "<" and end with ">"
+        Don't use this for complicated stuff, something will probably go wrong.
+    '''
+    return re.sub('<[^<]+?>', '', text)
+
+def excerpt( text, length=300 ):
+    '''Returns an excerpt from a text
+        Uses very simple method to strip html tags -> maybe not reliable
+    '''
+    text = stripHtml( text )
+    if len( text ) > length:
+        text = text[:length] + " [...]"
+    
+    return text
+
 def slugify( title ):
 	'''Create a slug from a title.
 		
@@ -23,7 +39,7 @@ def admin(method):
 	@functools.wraps(method)
 	@tornado.web.authenticated
 	def wrapper(self, *args, **kwargs):
-		if self.current_user != self.settings["author"]: # put your way of checking for an admin here
+		if self.current_user != self.settings["admin"]: # put your way of checking for an admin here
 			self.redirect("/")
 		else:
 			return method(self, *args, **kwargs)

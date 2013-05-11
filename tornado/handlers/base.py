@@ -11,6 +11,6 @@ class BaseHandler(tornado.web.RequestHandler):
 		return self.get_secure_cookie("name")
 
 	def is_admin(self):
-		'''Check if the current user is the author.'''
-		return self.current_user and self.current_user == self.settings["author"]
+		'''Check if the current user is the admin.'''
+		return self.current_user and self.current_user == self.settings["admin"]
 
