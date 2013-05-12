@@ -14,6 +14,7 @@ settings = {
     "xmpp_registerurl": "",     # For xmpp registration ( mod_register_json )
     "xmpp_bosh_service": "/http-bind/",
     "xmpp_contact_jid": "",
+    "xmpp_anon_host": "",       # Xmpp host that allows anonymouse logins, use for the direct xmpp chat
     "facebook_api_key": "",     # for facebook login
     "facebook_secret": "",
     "xmpp_token": "",       # For xmpp register form ( mod_register_json )

@@ -81,7 +81,7 @@ $(document).ready(function () {
 	    if ( nick.length > 0 ) {
 	    	button.value = 'disconnect';
 
-	   	connection.connect('anon.pengubytes.de',
+	   	connection.connect(xmpp_host,
 			       null,
 			       onConnect);
 	    } else {
