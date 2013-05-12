@@ -42,6 +42,8 @@ static/index.html
 static/robots.txt
 static/sitemap.xml
 tornado/testing.py
+static/404.html
+static/50x.html
 
 # External includes
 static/js/jquery*.js
