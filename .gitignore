@@ -50,6 +50,7 @@ static/js/jquery*.js
 static/tinymce/
 static/css/idea.css
 static/js/highlight.pack.js
+static/js/strophe.min.js
 
 # Hidden files
 .*

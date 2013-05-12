@@ -12,6 +12,8 @@ settings = {
     "domain": "",
     "xmpp_domain": "",
     "xmpp_registerurl": "",     # For xmpp registration ( mod_register_json )
+    "xmpp_bosh_service": "/http-bind/",
+    "xmpp_contact_jid": "",
     "facebook_api_key": "",     # for facebook login
     "facebook_secret": "",
     "xmpp_token": "",       # For xmpp register form ( mod_register_json )

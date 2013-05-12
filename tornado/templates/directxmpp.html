@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}direct chat{% end %}
+{% block css %}
+	<link rel='stylesheet' type='text/css' href='/css/directxmpp.css' />
+{% end %}
+{% block js %}
+	<script type='text/javascript' src='/js/jquery-2.0.0.min.js'></script>
+	<script type='text/javascript' src='/js/strophe.min.js'></script>
+	<script type='text/javascript' src='/js/directxmpp.js'></script>
+	<script type='text/javascript'>
+		var BOSH_SERVICE = '{{ bosh_service }}';
+		var to = '{{ contact_jid }}';
+	</script>
+{% end %}
+{% block content_id %}directxmpp{% end %}
+{% block content %}
+	<h2 class="page_title">Direct chat</h2>
+	<p id="instruction">
+		Please enter your name.
+	</p>
+  <div id='login'>
+    <form name='cred'>
+      <label for='nick'>Name:</label>
+      <input type='text' id='nick' onkeydown="if (event.keyCode == 13) { document.getElementById('connect').click(); return false;}" />
+      <input type='button' id='connect' value='connect' />
+    </form>
+  </div>
+  <div id='chat'>
+	  <hr />
+	  <div id='output'></div>
+	  <form name='chat'>
+		<input type='text' id='message' onkeydown="if (event.keyCode == 13) { document.getElementById('send').click(); return false;}" />
+		<input type='button' id='send' value='send' />
+	  </form>
+   </div>
+{% end %}

@@ -1,0 +1,27 @@
+#output {
+	overflow-y: scroll;
+	height: 270px;
+	border: 2px solid;
+}
+#chat {
+	margin-left: auto;
+	margin-right: auto;
+	display: none;
+	max-width: 600px;
+}
+#chat p {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom:0;
+}
+#message {
+	width: 90%;
+}
+#login {
+	text-align: center;
+}
+#instruction {
+	width: 100%;;
+	text-align: center;
+}

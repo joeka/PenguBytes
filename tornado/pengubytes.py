@@ -19,6 +19,7 @@ from handlers.pages import PagesHandler
 from handlers.blog import BlogHandler
 from handlers.error import ErrorHandler
 from handlers.xmppregister import XmppRegisterHandler
+from handlers.directxmpp import DirectXmppHandler
 
 application = tornado.web.Application([
     (r"/", BlogHandler),
@@ -30,6 +31,7 @@ application = tornado.web.Application([
     (r"/blog", BlogHandler),
     (r"/blog/([a-zA-Z0-9_-]+)", BlogHandler),           # Single posts
     (r"/blog/([a-zA-Z0-9_-]+)/([a-zA-Z0-9\\.\\+]+)", BlogHandler),  # used for tags
+    (r"/contact/xmpp", DirectXmppHandler),
     (r"/([a-zA-Z0-9_-]+)", PagesHandler),
     (r"/.*", ErrorHandler)
 ], **settings)
