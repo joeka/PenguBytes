@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ status_code }}{% end %}
+{% block content_id %}error{% end %}
+{% block content %}
+	<h2 class="page_title">Oh no! {{ status_code }}</h2>
+	<hr />
+	<p>
+		Oh no, an error occured:
+	</p>
+	<p>
+		&quot;{% raw reason %}&quot;
+	<p>
+	<p>
+		Please try again or try something else or loudly shout for an admin.
+	</p>
+	{% if traceback %}
+	<p>
+		{% raw traceback %}
+	</p>
+	{% end %}
+{% end %}
