@@ -47,7 +47,7 @@ with daemon.DaemonContext( ):  # to use with an init script
     locale.setlocale(locale.LC_TIME, "en_GB.UTF8")  # didn't like the us format
 
     application.listen(args.port)
-    application.settings["db"] = motor.MotorClient().open_sync()[
+    application.settings["db"] = motor.MotorClient()[
         application.settings["db_name"]]
     
 

@@ -31,18 +31,18 @@ class BlogHandler(BaseHandler):
                 limit specifies the length of the created list.
         '''
         db = self.settings['db']
-        result = yield motor.Op( db.posts.aggregate, [
+        result = yield db.posts.aggregate( [
             { '$unwind' : "$tags" },
             { '$group': { '_id': "$tags", 'count': { '$sum': 1}}},
             { '$sort': {'count': -1 }}, { '$limit': limit } ]  )
         if result and 'result' in result:
             try:
-                yield motor.Op( db.tags.rename, 
+                yield db.tags.rename( 
                     "tagsBackup", dropTarget=True ) # backup of the old list
             except:
                 print "No tags collection"
             
-            yield motor.Op( db.tags.insert,
+            yield db.tags.insert(
                 result['result'] )
 
 
@@ -69,7 +69,7 @@ class BlogHandler(BaseHandler):
                 if article_text == "" and  article_title == "" and  article_tags == "":
                     # if the users hasn't already provided new text etc. get it from the db
                     db = self.settings["db"]
-                    article = yield motor.Op( db.posts.find_one, { 'slug': slug })
+                    article = yield db.posts.find_one( { 'slug': slug })
                     if not article:
                         raise tornado.web.HTTPError(500, "Database error")
                     else:
@@ -112,7 +112,7 @@ class BlogHandler(BaseHandler):
             slug = self.get_argument("slug")    # will output http error if necessary
 
         db = self.settings['db']
-        response = yield motor.Op( db.posts.remove, { 'slug': slug })
+        response = yield db.posts.remove( { 'slug': slug })
         if not response:
             raise tornado.web.HTTPError(500, "Database error")
         else:
@@ -150,7 +150,7 @@ class BlogHandler(BaseHandler):
                 skip = show * (page - 1)
                 db.posts.find(filter, skip=skip, limit=show).sort( 
                     'date', -1 ).to_list(
-                    callback=lambda response, error: self._on_response(response, error, page=page, show=show, filter=filter, tags=tags))
+                    callback=lambda response, error: self._on_response(response, error, page=page, show=show, filter=filter, tags=tags), length=None)
                     # used lambda to provide a callback with arguments
                     # db callback to _on_response
 
@@ -172,7 +172,7 @@ class BlogHandler(BaseHandler):
         if response:
             db = self.settings['db']
             cursor = db.tags.find(limit=16)
-            tagList = yield motor.Op(cursor.to_list) # get list of most used tags (list created in updateTagList)
+            tagList = yield cursor.to_list(length=16) # get list of most used tags (list created in updateTagList)
 
             self.render("blog.html", 
                 title="blög: " + tornado.escape.native_str(response["title"]),
@@ -188,13 +188,13 @@ class BlogHandler(BaseHandler):
             Handle errors and show multiple blog posts.
         '''
         if error:
-            raise tornado.web.HTTPError(500, error)
+            raise tornado.web.HTTPError(500, str(error))
 
         db = self.settings['db']
         cursor = db.tags.find(limit=16)
-        tagList = yield motor.Op(cursor.to_list)    # get list of most used tags (list created in updateTagList)"
+        tagList = yield cursor.to_list(length=16)    # get list of most used tags (list created in updateTagList)"
         cursor = db.posts.find(filter)      # filter is provided by get and used to search by tag(s)
-        count = yield motor.Op(cursor.count)
+        count = yield cursor.count()
         if count > show:
             if tags:
                 nav_url ="/blog/tags/"+"+".joint(tags)
